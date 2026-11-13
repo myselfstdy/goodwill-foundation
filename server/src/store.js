@@ -35,12 +35,28 @@ const seed = () => {
       donations.push({ id: id(), campaignId: campaign.id, donorId: d.id, donorName: d.name, email: d.email, amount, currency: 'USD', status, anonymous: false, transactionRef: `DEMO-${String(41001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n), receiptNumber: status === 'SUCCEEDED' ? `RCP-${new Date().getFullYear()}-${String(1001 + i * 2 + n)}` : null, attempts: [{ attemptNumber: 1, status, reference: `ATT-${String(51001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n) }] });
     }
   });
-  const accounts = [{ id: id(), name: 'Alex Morgan', email: 'VVITU@ac.in', password: bcrypt.hashSync('VVITU@123', 10), role: 'ADMIN' }, ...donors.map(d => ({ id: id(), name: d.name, email: d.email, password: bcrypt.hashSync('DonorDemo!23', 10), role: 'DONOR' }))];
+  const accounts = [{ id: id(), name: 'Goodwill Foundation', email: 'VVITU@ac.in', password: bcrypt.hashSync('VVITU@123', 10), role: 'ADMIN' }, ...donors.map(d => ({ id: id(), name: d.name, email: d.email, password: bcrypt.hashSync('DonorDemo!23', 10), role: 'DONOR' }))];
   for (const donor of donors) donor.userId = accounts.find(account => account.role === 'DONOR' && account.email.toLowerCase() === donor.email.toLowerCase())?.id;
   return { campaigns, donors, donations, audit: [{ id: id(), action: 'SYSTEM_SEEDED', entity: 'System', entityId: null, actor: 'System', createdAt: iso(-5) }], accounts, refreshTokens: [], notifications: [], loginActivity:[], savedCampaigns:[], followedCampaigns:[], donorPreferences:[], notificationPreferences:[], supportTickets:[], deletionRequests:[], campaignUpdates:[], dashboardPreferences:[], emailVerifications:[], passwordResets:[] };
 };
 export function readStore() {
-  try { const state = JSON.parse(fs.readFileSync(dataFile, 'utf8')); for (const key of ['notifications','savedCampaigns','followedCampaigns','donorPreferences','notificationPreferences','supportTickets','loginActivity','deletionRequests','campaignUpdates','dashboardPreferences','emailVerifications','passwordResets']) state[key] ||= [];const seededEmails=new Set(['amara@example.org','ethan@example.org','sofia@example.org','noah@example.org','grace@example.org','oliver@example.org']);for(const donor of state.donors)if(!donor.userId&&seededEmails.has(donor.email.toLowerCase())){const owner=state.accounts.find(account=>account.role==='DONOR'&&account.email.toLowerCase()===donor.email.toLowerCase());if(owner)donor.userId=owner.id;}return state; }
+  try {
+    const state = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
+    for (const key of ['notifications','savedCampaigns','followedCampaigns','donorPreferences','notificationPreferences','supportTickets','loginActivity','deletionRequests','campaignUpdates','dashboardPreferences','emailVerifications','passwordResets']) state[key] ||= [];
+    const seededEmails = new Set(['amara@example.org','ethan@example.org','sofia@example.org','noah@example.org','grace@example.org','oliver@example.org']);
+    for (const donor of state.donors) {
+      if (!donor.userId && seededEmails.has(donor.email.toLowerCase())) {
+        const owner = state.accounts.find(account => account.role === 'DONOR' && account.email.toLowerCase() === donor.email.toLowerCase());
+        if (owner) donor.userId = owner.id;
+      }
+    }
+    const admin = state.accounts.find(account => account.role === 'ADMIN' && account.email.toLowerCase() === 'vvitu@ac.in');
+    if (admin && admin.name !== 'Goodwill Foundation') {
+      admin.name = 'Goodwill Foundation';
+      writeStore(state);
+    }
+    return state;
+  }
   catch { const state = seed(); writeStore(state); return state; }
 }
 export function writeStore(state) {

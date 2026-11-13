@@ -1,0 +1,38 @@
+.brandmark img {
+  display: block;
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.donor-brand > span:first-child {
+  background: #e7f5f0;
+}
+
+.donor-brand > span:first-child img {
+  display: block;
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.workspace-brand-icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.mobile-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.mobile-brand img,
+.donor-crumb img {
+  display: block;
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+}
