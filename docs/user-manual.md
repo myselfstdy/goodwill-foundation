@@ -11,7 +11,7 @@
 
 ## Demo administrator
 
-Sign in at `/login` with `admin@goodwill.demo` and `DemoAdmin!23`. The initial login form is prefilled for the local showcase. The dashboard shows successful totals, donor count, active campaign count, donation trend, campaign progress and recent gifts.
+Sign in at `/login` with `VVITU@ac.in` and `VVITU@123`. The login form is blank and does not display account credentials. The dashboard shows successful totals, donor count, active campaign count, donation trend, campaign progress and recent gifts.
 
 - **Donors:** search the list and review giving totals.
 - **Campaigns:** create campaigns and pause them using the overflow action.

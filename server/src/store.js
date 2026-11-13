@@ -35,7 +35,7 @@ const seed = () => {
       donations.push({ id: id(), campaignId: campaign.id, donorId: d.id, donorName: d.name, email: d.email, amount, currency: 'USD', status, anonymous: false, transactionRef: `DEMO-${String(41001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n), receiptNumber: status === 'SUCCEEDED' ? `RCP-${new Date().getFullYear()}-${String(1001 + i * 2 + n)}` : null, attempts: [{ attemptNumber: 1, status, reference: `ATT-${String(51001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n) }] });
     }
   });
-  const accounts = [{ id: id(), name: 'Alex Morgan', email: 'admin@goodwill.demo', password: bcrypt.hashSync('DemoAdmin!23', 10), role: 'ADMIN' }, ...donors.map(d => ({ id: id(), name: d.name, email: d.email, password: bcrypt.hashSync('DonorDemo!23', 10), role: 'DONOR' }))];
+  const accounts = [{ id: id(), name: 'Alex Morgan', email: 'VVITU@ac.in', password: bcrypt.hashSync('VVITU@123', 10), role: 'ADMIN' }, ...donors.map(d => ({ id: id(), name: d.name, email: d.email, password: bcrypt.hashSync('DonorDemo!23', 10), role: 'DONOR' }))];
   for (const donor of donors) donor.userId = accounts.find(account => account.role === 'DONOR' && account.email.toLowerCase() === donor.email.toLowerCase())?.id;
   return { campaigns, donors, donations, audit: [{ id: id(), action: 'SYSTEM_SEEDED', entity: 'System', entityId: null, actor: 'System', createdAt: iso(-5) }], accounts, refreshTokens: [], notifications: [], loginActivity:[], savedCampaigns:[], followedCampaigns:[], donorPreferences:[], notificationPreferences:[], supportTickets:[], deletionRequests:[], campaignUpdates:[], dashboardPreferences:[], emailVerifications:[], passwordResets:[] };
 };

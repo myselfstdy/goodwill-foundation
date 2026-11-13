@@ -14,8 +14,12 @@ const campaigns = [
   ['Safe Homes Initiative', 'safe-homes-initiative', 'Help families rebuild safe, stable homes after severe storms.', 'Housing', 60000]
 ];
 try {
-  const adminHash = await bcrypt.hash('DemoAdmin!23', 10);
-  const admin = await prisma.user.upsert({ where: { email: 'admin@goodwill.demo' }, update: {}, create: { name: 'Alex Morgan', email: 'admin@goodwill.demo', passwordHash: adminHash, role: 'ADMIN' } });
+  const adminHash = await bcrypt.hash('VVITU@123', 10);
+  const previousAdmin = await prisma.user.findUnique({ where: { email: 'admin@goodwill.demo' } });
+  const currentAdmin = await prisma.user.findUnique({ where: { email: 'VVITU@ac.in' } });
+  const admin = previousAdmin && !currentAdmin
+    ? await prisma.user.update({ where: { id: previousAdmin.id }, data: { name: 'VVITU Administrator', email: 'VVITU@ac.in', passwordHash: adminHash, role: 'ADMIN' } })
+    : await prisma.user.upsert({ where: { email: 'VVITU@ac.in' }, update: { name: 'VVITU Administrator', passwordHash: adminHash, role: 'ADMIN' }, create: { name: 'VVITU Administrator', email: 'VVITU@ac.in', passwordHash: adminHash, role: 'ADMIN' } });
   const rows = [];
   for (const [title, slug, description, category, target] of campaigns) rows.push(await prisma.campaign.upsert({ where: { slug }, update: {}, create: { title, slug, description, category, target, startsAt: day(-30), endsAt: day(90), status: slug === 'safe-homes-initiative' ? 'PAUSED' : 'ACTIVE' } }));
   const people = [['Amara Johnson','amara@example.org'],['Ethan Chen','ethan@example.org'],['Sofia Patel','sofia@example.org'],['Noah Williams','noah@example.org'],['Grace Kim','grace@example.org'],['Oliver Brooks','oliver@example.org']];

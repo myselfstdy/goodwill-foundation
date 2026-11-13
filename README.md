@@ -33,7 +33,7 @@ Goodwill Foundation is an academic demonstration app for nonprofit campaigns and
 
 4. Open `http://localhost:5173`. The health endpoint is `http://localhost:4000/api/health`.
 
-Demo administrator: `admin@goodwill.demo` / `DemoAdmin!23`.
+Demo administrator: `VVITU@ac.in` / `VVITU@123`.
 
 Seeded donor accounts use the listed addresses in `server/prisma/seed.js` and password `DonorDemo!23`. Donors can also register at `/register`.
 
@@ -49,6 +49,8 @@ Seeded donor accounts use the listed addresses in `server/prisma/seed.js` and pa
    npm run db:migrate
    npm run db:seed
    ```
+
+For an existing database seeded with the earlier demo admin, run `npm run db:seed` once to change that account to the VVITU login above.
 
 5. Start the app with `npm run dev`. `/api/health` reports `mode: postgres` and database connectivity.
 
