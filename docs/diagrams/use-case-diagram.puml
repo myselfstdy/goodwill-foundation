@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+actor Guest
+actor Donor
+actor Administrator
+rectangle "Goodwill Donation Management System" {
+  usecase "Browse and search campaigns" as Browse
+  usecase "Register or sign in" as Auth
+  usecase "Submit a donation" as Donate
+  usecase "View own donations and receipts" as History
+  usecase "Manage profile and preferences" as Profile
+  usecase "Save / follow causes and request support" as Saved
+  usecase "Manage campaigns and donors" as CampaignAdmin
+  usecase "Review donations and reports" as Reports
+  usecase "Respond to support / deletion requests" as AdminSupport
+  usecase "Validate gift and campaign details" as Validate
+  usecase "Simulate payment outcome" as Payment
+  usecase "Issue receipt after successful payment" as Receipt
+  note bottom: Donation is validated and simulated; a receipt is issued only after success.
+}
+Guest -- Browse
+Guest -- Auth
+Guest -- Donate
+Donor -- Browse
+Donor -- Donate
+Donor -- History
+Donor -- Profile
+Donor -- Saved
+Administrator -- CampaignAdmin
+Administrator -- Reports
+Administrator -- AdminSupport
+@enduml

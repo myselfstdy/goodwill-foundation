@@ -1,0 +1,13 @@
+flowchart LR
+ Actors[Guest / donor / admin] --> Auth((1 Identity and access))
+ Auth <--> U[(User and session records)]
+ Actors --> Camp((2 Campaign management))
+ Camp <--> C[(Campaign records)]
+ Actors --> Gift((3 Donation processing))
+ Gift <--> D[(Donation and attempt records)]
+ Gift --> Pay((4 Demo payment))
+ Pay --> Gift
+ Gift --> Receipt((5 Receipt and impact))
+ Receipt <--> R[(Receipt records)]
+ Actors --> Report((6 Reports, notifications, support))
+ Report <--> A[(Audit, support, notification records)]

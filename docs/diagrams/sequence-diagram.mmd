@@ -1,0 +1,25 @@
+sequenceDiagram
+ actor Donor
+ participant React
+ participant API as Express API
+ participant V as Validation and auth middleware
+ participant S as Donation workflow
+ participant P as Demo payment simulator
+ participant ORM as Prisma
+ participant DB as PostgreSQL
+ Donor->>React: Submit campaign and gift
+ React->>API: POST /api/donations
+ API->>V: Apply security and Zod checks
+ V->>S: Valid request
+ S->>ORM: Create pending donation and attempt
+ S->>P: Simulate payment
+ P-->>S: Success or failure + reference
+ alt Success
+ S->>ORM: Transaction: success, totals, receipt, audit
+ ORM->>DB: Commit
+ else Failure
+ S->>ORM: Record failed status; no receipt
+ ORM->>DB: Commit failure attempt
+ end
+ API-->>React: Donation outcome and receipt if successful
+ React-->>Donor: Display result

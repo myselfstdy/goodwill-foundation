@@ -1,0 +1,25 @@
+erDiagram
+ USER ||--o| DONOR : profile
+ DONOR ||--o{ DONATION : gives
+ CAMPAIGN ||--o{ DONATION : receives
+ DONATION ||--o{ PAYMENT_ATTEMPT : tracks
+ DONATION ||--o| RECEIPT : issues
+ USER ||--o{ REFRESH_TOKEN : owns
+ USER ||--o{ NOTIFICATION : receives
+ USER ||--o| DONOR_PREFERENCES : sets
+ USER ||--o| NOTIFICATION_PREFERENCE : sets
+ USER ||--o| DONOR_DASHBOARD_PREFERENCES : sets
+ USER ||--o{ AUDIT_LOG : acts
+ USER ||--o{ SUPPORT_TICKET : opens
+ SUPPORT_TICKET ||--o{ SUPPORT_TICKET_REPLY : contains
+ USER ||--o{ LOGIN_ACTIVITY : records
+ USER ||--o{ ACCOUNT_DELETION_REQUEST : requests
+ USER ||--o{ EMAIL_VERIFICATION : requests
+ USER ||--o{ PASSWORD_RESET : requests
+ DONOR ||--o{ DONOR_ACHIEVEMENT : earns
+ ACHIEVEMENT_BADGE ||--o{ DONOR_ACHIEVEMENT : defines
+ CAMPAIGN ||--o{ SAVED_CAMPAIGN : saved
+ USER ||--o{ SAVED_CAMPAIGN : saves
+ CAMPAIGN ||--o{ CAMPAIGN_FOLLOW : followed
+ USER ||--o{ CAMPAIGN_FOLLOW : follows
+ CAMPAIGN ||--o{ CAMPAIGN_UPDATE : posts

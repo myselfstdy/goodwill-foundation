@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="934" height="1165" viewBox="0 0 934 1165">
+<defs><marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#168C8A"/></marker></defs>
+<rect width="100%" height="100%" rx="24" fill="#FFFFFF"/>
+<text x="60" y="54" font-family="Arial" font-size="30" font-weight="700" fill="#102A43">Donation activity</text>
+<text x="60" y="88" font-family="Arial" font-size="16" fill="#647887">A failed demo attempt is recorded without a receipt; retry can succeed later</text>
+<path d="M 450 210 L 467 210 L 467 210 L 474 210" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<path d="M 484 210 L 484 309 L 450 309 L 450 399" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="303" font-family="Arial" font-size="12" fill="#102A43">submit</text>
+<path d="M 450 409 L 467 409 L 467 409 L 474 409" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="403" font-family="Arial" font-size="12" fill="#102A43">no</text>
+<path d="M 255 482 L 255 509 L 255 509 L 255 526" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="260" y="503" font-family="Arial" font-size="12" fill="#102A43">yes</text>
+<path d="M 450 608 L 467 608 L 467 608 L 474 608" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<path d="M 484 608 L 484 707 L 450 707 L 450 797" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="701" font-family="Arial" font-size="12" fill="#102A43">success</text>
+<path d="M 450 807 L 467 807 L 467 807 L 474 807" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<path d="M 484 608 L 484 807 L 450 807 L 450 996" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="801" font-family="Arial" font-size="12" fill="#102A43">failure</text>
+<path d="M 679 880 L 679 907 L 679 907 L 679 924" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<path d="M 450 1006 L 467 1006 L 467 1006 L 474 1006" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<rect x="60" y="138" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Start</text>
+<text x="78" y="180" font-family="Arial" font-size="13" fill="#253B4A">Open an active campaign</text>
+<rect x="484" y="138" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Enter gift details</text>
+<text x="502" y="180" font-family="Arial" font-size="13" fill="#253B4A">Amount, name, email</text>
+<text x="502" y="197" font-family="Arial" font-size="13" fill="#253B4A">Anonymous option if desired</text>
+<rect x="60" y="337" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Validate</text>
+<text x="78" y="379" font-family="Arial" font-size="13" fill="#253B4A">Positive amount</text>
+<text x="78" y="396" font-family="Arial" font-size="13" fill="#253B4A">Active campaign + valid fields</text>
+<rect x="484" y="337" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Invalid</text>
+<text x="502" y="379" font-family="Arial" font-size="13" fill="#253B4A">Show validation error</text>
+<text x="502" y="396" font-family="Arial" font-size="13" fill="#253B4A">Return to form</text>
+<rect x="60" y="536" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="565" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Create donation</text>
+<text x="78" y="578" font-family="Arial" font-size="13" fill="#253B4A">Pending donation</text>
+<text x="78" y="595" font-family="Arial" font-size="13" fill="#253B4A">Create payment attempt</text>
+<rect x="484" y="536" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="565" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Simulate payment</text>
+<text x="502" y="578" font-family="Arial" font-size="13" fill="#253B4A">Demo card or bank</text>
+<text x="502" y="595" font-family="Arial" font-size="13" fill="#253B4A">Success or failure result</text>
+<rect x="60" y="735" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="764" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Successful</text>
+<text x="78" y="777" font-family="Arial" font-size="13" fill="#253B4A">Mark succeeded</text>
+<text x="78" y="794" font-family="Arial" font-size="13" fill="#253B4A">Record transaction reference</text>
+<rect x="484" y="735" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="764" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Issue receipt</text>
+<text x="502" y="777" font-family="Arial" font-size="13" fill="#253B4A">Unique receipt</text>
+<text x="502" y="794" font-family="Arial" font-size="13" fill="#253B4A">Update campaign totals</text>
+<rect x="60" y="934" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="963" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Failed</text>
+<text x="78" y="976" font-family="Arial" font-size="13" fill="#253B4A">Mark failed</text>
+<text x="78" y="993" font-family="Arial" font-size="13" fill="#253B4A">No receipt; retry may be offered</text>
+<rect x="484" y="934" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="963" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Finish</text>
+<text x="502" y="976" font-family="Arial" font-size="13" fill="#253B4A">Show status and next step</text>
+<text x="502" y="993" font-family="Arial" font-size="13" fill="#253B4A">Guest or donor view</text>
+</svg>

@@ -106,3 +106,86 @@ The API tests run against the demo store and cover donor ownership, totals, rece
 - The PDF receipts and annual statements are generated server-side as simple printable documents, not tax documents.
 - The production bundle currently reports a Vite chunk-size warning; the build succeeds.
 - No live PostgreSQL service was available in the development workspace, so the new migration was not applied here.
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+
+## Project documentation
+
+- [Final project report](docs/Goodwill_Donation_Management_System_Final_Report.docx)
+- [Final project report PDF](docs/Goodwill_Donation_Management_System_Final_Report.pdf)
+- [Project documentation audit](docs/PROJECT_DOCUMENTATION_AUDIT.md)
+- [System design documentation](docs/SYSTEM_DESIGN_DOCUMENTATION.md)
+- [API documentation](docs/API_DOCUMENTATION.md)
+- [Testing documentation](docs/TESTING_DOCUMENTATION.md)
+- [Editable diagrams and rendered images](docs/diagrams/)
+- [Application screenshots](docs/screenshots/)

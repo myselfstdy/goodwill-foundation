@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="934" height="966" viewBox="0 0 934 966">
+<defs><marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#168C8A"/></marker></defs>
+<rect width="100%" height="100%" rx="24" fill="#FFFFFF"/>
+<text x="60" y="54" font-family="Arial" font-size="30" font-weight="700" fill="#102A43">Main application workflow</text>
+<text x="60" y="88" font-family="Arial" font-size="16" fill="#647887">Public browsing, giving, donor services, and administrator operations</text>
+<path d="M 450 210 L 467 210 L 467 210 L 474 210" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="204" font-family="Arial" font-size="12" fill="#102A43">public</text>
+<path d="M 484 210 L 484 309 L 450 309 L 450 399" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="303" font-family="Arial" font-size="12" fill="#102A43">optional sign-in</text>
+<path d="M 450 409 L 467 409 L 467 409 L 474 409" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="403" font-family="Arial" font-size="12" fill="#102A43">authenticated or guest</text>
+<path d="M 679 482 L 679 608 L 679 608 L 679 725" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="684" y="602" font-family="Arial" font-size="12" fill="#102A43">pending + attempt</text>
+<path d="M 484 409 L 484 508 L 450 508 L 450 598" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="502" font-family="Arial" font-size="12" fill="#102A43">simulated</text>
+<path d="M 450 608 L 467 608 L 467 608 L 474 608" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="602" font-family="Arial" font-size="12" fill="#102A43">success only</text>
+<path d="M 450 608 L 450 707 L 484 707 L 484 797" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="455" y="701" font-family="Arial" font-size="12" fill="#102A43">status + audit</text>
+<path d="M 450 807 L 467 807 L 467 807 L 474 807" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="801" font-family="Arial" font-size="12" fill="#102A43">protected management</text>
+<rect x="60" y="138" width="390" height="145" rx="15" fill="#F8F0DB" stroke="#102A43" stroke-width="2"/>
+<text x="78" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Guest</text>
+<text x="78" y="180" font-family="Arial" font-size="13" fill="#253B4A">Browse active campaigns</text>
+<text x="78" y="197" font-family="Arial" font-size="13" fill="#253B4A">May give without account</text>
+<rect x="484" y="138" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Campaign selection</text>
+<text x="502" y="180" font-family="Arial" font-size="13" fill="#253B4A">Choose a cause</text>
+<text x="502" y="197" font-family="Arial" font-size="13" fill="#253B4A">Check active status and amount</text>
+<rect x="60" y="337" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Account access</text>
+<text x="78" y="379" font-family="Arial" font-size="13" fill="#253B4A">Register or sign in</text>
+<text x="78" y="396" font-family="Arial" font-size="13" fill="#253B4A">JWT + role scope</text>
+<rect x="484" y="337" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Create donation</text>
+<text x="502" y="379" font-family="Arial" font-size="13" fill="#253B4A">Validate campaign and amount</text>
+<text x="502" y="396" font-family="Arial" font-size="13" fill="#253B4A">Record demo payment attempt</text>
+<rect x="60" y="536" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="565" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Outcome</text>
+<text x="78" y="578" font-family="Arial" font-size="13" fill="#253B4A">Success or failure</text>
+<text x="78" y="595" font-family="Arial" font-size="13" fill="#253B4A">Retry available after failure</text>
+<rect x="484" y="536" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="565" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Receipt and history</text>
+<text x="502" y="578" font-family="Arial" font-size="13" fill="#253B4A">Receipt only on success</text>
+<text x="502" y="595" font-family="Arial" font-size="13" fill="#253B4A">Donor sees own records</text>
+<rect x="60" y="735" width="390" height="145" rx="15" fill="#F8F0DB" stroke="#102A43" stroke-width="2"/>
+<text x="78" y="764" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Admin workspace</text>
+<text x="78" y="777" font-family="Arial" font-size="13" fill="#253B4A">Manage campaigns and donors</text>
+<text x="78" y="794" font-family="Arial" font-size="13" fill="#253B4A">Reports, activity, support</text>
+<rect x="484" y="735" width="390" height="145" rx="7" fill="#EAF1F8" stroke="#168C8A" stroke-width="2"/>
+<path d="M493 769 H865" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="764" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">PostgreSQL</text>
+<text x="502" y="777" font-family="Arial" font-size="13" fill="#253B4A">Prisma transaction</text>
+<text x="502" y="794" font-family="Arial" font-size="13" fill="#253B4A">Audit and notification records</text>
+</svg>

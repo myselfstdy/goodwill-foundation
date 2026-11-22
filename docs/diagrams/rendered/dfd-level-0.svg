@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="934" height="767" viewBox="0 0 934 767">
+<defs><marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#168C8A"/></marker></defs>
+<rect width="100%" height="100%" rx="24" fill="#FFFFFF"/>
+<text x="60" y="54" font-family="Arial" font-size="30" font-weight="700" fill="#102A43">DFD Level 0 Context</text>
+<text x="60" y="88" font-family="Arial" font-size="16" fill="#647887">One Goodwill system exchanges campaign, gift, receipt, and management information with three actors</text>
+<path d="M 450 210 L 450 309 L 484 309 L 484 399" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="455" y="303" font-family="Arial" font-size="12" fill="#102A43">browse / give</text>
+<path d="M 484 409 L 484 309 L 450 309 L 450 220" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="303" font-family="Arial" font-size="12" fill="#102A43">causes / outcome</text>
+<path d="M 679 283 L 679 310 L 679 310 L 679 327" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="684" y="304" font-family="Arial" font-size="12" fill="#102A43">account / giving</text>
+<path d="M 679 337 L 679 310 L 679 310 L 679 293" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="684" y="304" font-family="Arial" font-size="12" fill="#102A43">history / receipt</text>
+<path d="M 450 409 L 467 409 L 467 409 L 474 409" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="403" font-family="Arial" font-size="12" fill="#102A43">manage / report</text>
+<path d="M 484 409 L 467 409 L 467 409 L 460 409" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="472" y="403" font-family="Arial" font-size="12" fill="#102A43">dashboard / export</text>
+<path d="M 484 409 L 484 508 L 450 508 L 450 598" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="489" y="502" font-family="Arial" font-size="12" fill="#102A43">demo request</text>
+<path d="M 450 608 L 450 508 L 484 508 L 484 419" fill="none" stroke="#168C8A" stroke-width="2.2" marker-end="url(#arr)"/>
+<text x="455" y="502" font-family="Arial" font-size="12" fill="#102A43">simulated result</text>
+<rect x="60" y="138" width="390" height="145" rx="15" fill="#F8F0DB" stroke="#102A43" stroke-width="2"/>
+<text x="78" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Guest</text>
+<text x="78" y="180" font-family="Arial" font-size="13" fill="#253B4A">Campaign search</text>
+<text x="78" y="197" font-family="Arial" font-size="13" fill="#253B4A">Optional gift details</text>
+<rect x="484" y="138" width="390" height="145" rx="15" fill="#F8F0DB" stroke="#102A43" stroke-width="2"/>
+<text x="502" y="167" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Donor</text>
+<text x="502" y="180" font-family="Arial" font-size="13" fill="#253B4A">Credentials + profile</text>
+<text x="502" y="197" font-family="Arial" font-size="13" fill="#253B4A">Own history / receipt</text>
+<rect x="60" y="337" width="390" height="145" rx="15" fill="#F8F0DB" stroke="#102A43" stroke-width="2"/>
+<text x="78" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Administrator</text>
+<text x="78" y="379" font-family="Arial" font-size="13" fill="#253B4A">Management commands</text>
+<text x="78" y="396" font-family="Arial" font-size="13" fill="#253B4A">Dashboard / reports</text>
+<rect x="484" y="337" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="502" y="366" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Goodwill DMS</text>
+<text x="502" y="379" font-family="Arial" font-size="13" fill="#253B4A">REST application</text>
+<text x="502" y="396" font-family="Arial" font-size="13" fill="#253B4A">Demo payment outcome</text>
+<rect x="60" y="536" width="390" height="145" rx="15" fill="#FFFFFF" stroke="#168C8A" stroke-width="2"/>
+<text x="78" y="565" font-family="Arial" font-size="18" font-weight="700" fill="#102A43">Demo payment simulator</text>
+<text x="78" y="578" font-family="Arial" font-size="13" fill="#253B4A">Success/failure outcome</text>
+<text x="78" y="595" font-family="Arial" font-size="13" fill="#253B4A">Transaction reference</text>
+</svg>

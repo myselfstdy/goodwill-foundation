@@ -1,0 +1,9 @@
+flowchart TD
+ A([Start]) --> B[Select active campaign and enter amount]
+ B --> C{Input valid?}
+ C -->|No| D[Show validation error] --> B
+ C -->|Yes| E[Create pending donation and attempt]
+ E --> F{Demo result}
+ F -->|Success| G[Mark successful and update campaign]
+ G --> H[Create unique receipt and audit event] --> I([Show successful result])
+ F -->|Failure| J[Mark failed; no receipt] --> K([Show failed result / retry])

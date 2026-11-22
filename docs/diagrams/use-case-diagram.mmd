@@ -1,0 +1,30 @@
+flowchart LR
+ Guest([Guest])
+ Donor([Donor])
+ Admin([Administrator])
+ subgraph System[Goodwill Donation Management System]
+  Browse([Browse and search campaigns])
+  Auth([Register or sign in])
+  Donate([Submit a donation])
+  History([View own donations and receipts])
+  Profile([Manage profile and preferences])
+  Saved([Save or follow causes; request support])
+  Campaigns([Manage campaigns and donors])
+  Reports([Review donations and reports])
+  AdminSupport([Respond to support or deletion requests])
+  Validate([Validate gift and campaign details])
+  Payment([Simulate payment outcome])
+  Receipt([Issue receipt after successful payment])
+ end
+ Guest --> Browse
+ Guest --> Auth
+ Guest --> Donate
+ Donor --> Browse
+ Donor --> Donate
+ Donor --> History
+ Donor --> Profile
+ Donor --> Saved
+ Admin --> Campaigns
+ Admin --> Reports
+ Admin --> AdminSupport
+ Note[Donation validated and simulated; receipt follows success]

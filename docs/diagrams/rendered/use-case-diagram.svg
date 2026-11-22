@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1240" viewBox="0 0 1800 1240">
+<defs><marker id="use-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#168C8A"/></marker></defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="900" y="80" text-anchor="middle" font-family="Times New Roman,serif" font-size="44" font-weight="700" fill="#102A43">Goodwill Foundation — UML Use-Case Diagram</text>
+<rect x="250" y="165" width="1300" height="930" rx="10" fill="#FFFFFF" stroke="#102A43" stroke-width="4"/>
+<rect x="252" y="167" width="1296" height="63" fill="#EAF1F8"/><path d="M252 230 H1548" stroke="#102A43" stroke-width="3"/>
+<text x="900" y="210" text-anchor="middle" font-family="Times New Roman,serif" font-size="31" font-weight="700" fill="#102A43">Goodwill Donation Management System</text>
+<path d="M190 372 L300 323.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 372 L300 458.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 372 L300 593.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 792 L300 323.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 792 L300 593.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 792 L300 728.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 792 L300 863.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M190 792 L300 998.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M1610 612 L1500 323.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M1610 612 L1500 458.0" fill="none" stroke="#647887" stroke-width="3"/>
+<path d="M1610 612 L1500 593.0" fill="none" stroke="#647887" stroke-width="3"/>
+<circle cx="145" cy="326" r="26" fill="#FFFFFF" stroke="#102A43" stroke-width="4"/>
+<path d="M145 352 V412 M100 372 H190 M145 412 L107 465 M145 412 L183 465" fill="none" stroke="#102A43" stroke-width="4"/>
+<text x="145" y="520" text-anchor="middle" font-family="Times New Roman,serif" font-size="31" font-weight="700" fill="#102A43">Guest</text>
+<circle cx="145" cy="746" r="26" fill="#FFFFFF" stroke="#102A43" stroke-width="4"/>
+<path d="M145 772 V832 M100 792 H190 M145 832 L107 885 M145 832 L183 885" fill="none" stroke="#102A43" stroke-width="4"/>
+<text x="145" y="940" text-anchor="middle" font-family="Times New Roman,serif" font-size="31" font-weight="700" fill="#102A43">Donor</text>
+<circle cx="1655" cy="566" r="26" fill="#FFFFFF" stroke="#102A43" stroke-width="4"/>
+<path d="M1655 592 V652 M1610 612 H1700 M1655 652 L1617 705 M1655 652 L1693 705" fill="none" stroke="#102A43" stroke-width="4"/>
+<text x="1655" y="760" text-anchor="middle" font-family="Times New Roman,serif" font-size="31" font-weight="700" fill="#102A43">Administrator</text>
+<ellipse cx="570" cy="323" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="331" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Browse and search campaigns</text>
+<ellipse cx="570" cy="458" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="466" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Register or sign in</text>
+<ellipse cx="570" cy="593" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="601" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Submit a donation</text>
+<ellipse cx="570" cy="728" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="736" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">View own donations and receipts</text>
+<ellipse cx="570" cy="863" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="871" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Manage profile and preferences</text>
+<ellipse cx="570" cy="998" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="570" y="1006" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Save / follow causes and request support</text>
+<ellipse cx="1230" cy="323" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="331" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Manage campaigns and donors</text>
+<ellipse cx="1230" cy="458" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="466" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Review donations and reports</text>
+<ellipse cx="1230" cy="593" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="601" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Respond to support / deletion requests</text>
+<ellipse cx="1230" cy="728" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="736" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Validate gift and campaign details</text>
+<ellipse cx="1230" cy="863" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="871" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Simulate payment outcome</text>
+<ellipse cx="1230" cy="998" rx="270" ry="48" fill="#EAF1F8" stroke="#168C8A" stroke-width="4"/>
+<text x="1230" y="1006" text-anchor="middle" font-family="Times New Roman,serif" font-size="27" fill="#253B4A">Issue receipt after successful payment</text>
+<text x="900" y="1153" text-anchor="middle" font-family="Times New Roman,serif" font-size="24" fill="#647887">Donation is validated and simulated; a receipt is issued only after success.</text>
+</svg>

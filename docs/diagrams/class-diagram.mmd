@@ -1,0 +1,72 @@
+classDiagram
+ class User {
+   +UUID id <<PK>>
+   +String email <<unique>>
+   +String passwordHash
+   +Role role
+   +Boolean active
+ }
+ class Donor {
+   +UUID id <<PK>>
+   +UUID userId? <<unique FK>>
+   +String name
+   +String email
+ }
+ class Campaign {
+   +UUID id <<PK>>
+   +String slug <<unique>>
+   +Decimal target
+   +CampaignStatus status
+ }
+ class Donation {
+   +UUID id <<PK>>
+   +UUID campaignId <<FK>>
+   +UUID donorId? <<FK>>
+   +Decimal amount
+   +DonationStatus status
+ }
+ class PaymentAttempt {
+   +UUID id
+   +UUID donationId <<FK>>
+   +Int attemptNumber
+   +PaymentStatus status
+   +String reference <<unique>>
+ }
+ class Receipt {
+   +UUID id
+   +UUID donationId <<unique FK>>
+   +String receiptNumber <<unique>>
+ }
+ class Notification {
+   +UUID id
+   +UUID userId <<FK>>
+   +String category
+   +DateTime readAt?
+ }
+ class AuditLog {
+   +UUID id
+   +UUID userId? <<FK>>
+   +String action
+   +String entity
+ }
+ class SupportTicket {
+   +UUID id
+   +UUID userId <<FK>>
+   +String subject
+   +String status
+ }
+ class SupportTicketReply {
+   +UUID id
+   +UUID ticketId <<FK>>
+   +UUID userId? <<FK>>
+   +String body
+ }
+ User "1" -- "0..1" Donor
+ Donor "1" -- "0..*" Donation
+ Campaign "1" -- "0..*" Donation
+ Donation "1" -- "0..*" PaymentAttempt
+ Donation "1" -- "0..1" Receipt
+ User "1" -- "0..*" Notification
+ User "1" -- "0..*" AuditLog
+ User "1" -- "0..*" SupportTicket
+ SupportTicket "1" -- "0..*" SupportTicketReply

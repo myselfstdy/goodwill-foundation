@@ -5,9 +5,11 @@ import crypto from 'node:crypto';
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 import { createPdf } from './pdf.js';
+import { createDonationReceiptPdf } from './receipt-pdf.js';
 import rateLimit from 'express-rate-limit';
 
 const ACCESS_SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('hex');
+const receiptAccessToken = donationId => jwt.sign({purpose:'receipt-download',donationId},ACCESS_SECRET,{expiresIn:'2h'});
 const REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || crypto.randomBytes(32).toString('hex');
 const accessFor = user => jwt.sign({ sub:user.id, ver:user.tokenVersion||0, role:user.role, name:user.name, email:user.email }, ACCESS_SECRET, { expiresIn:'20m' });
 const hashToken = token => crypto.createHash('sha256').update(token).digest('hex');
@@ -98,7 +100,7 @@ export function createPrismaRouter(prisma) {
 
   router.post('/donations',asyncRoute(async(req,res,next)=>{if(req.headers.authorization){return auth(req,res,()=>next());}next();}),validate(donationInput),asyncRoute(async(req,res)=>{
     const cents=moneyCents(req.body.amount);const rawKey=String(req.headers['idempotency-key']||'').slice(0,100);const key=rawKey?hashToken(`${req.user?.id||req.body.email.toLowerCase()}:${rawKey}`):null;
-    if(key){const existing=await prisma.donation.findUnique({where:{idempotencyKey:key},include:{campaign:true,donor:true,receipt:true,attempts:true}});if(existing)return res.status(200).json({donation:donationDto(existing),receipt:existing.receipt?{receiptNumber:existing.receipt.receiptNumber}:null});}
+    if(key){const existing=await prisma.donation.findUnique({where:{idempotencyKey:key},include:{campaign:true,donor:true,receipt:true,attempts:true}});if(existing)return res.status(200).json({donation:donationDto(existing),receipt:existing.receipt?{receiptNumber:existing.receipt.receiptNumber}:null,...(existing.status==='SUCCEEDED'&&!req.user?{receiptAccessToken:receiptAccessToken(existing.id)}:{})});}
     const campaign=await prisma.campaign.findUnique({where:{id:req.body.campaignId}});if(!campaign||campaign.status!=='ACTIVE')return bad(res,400,'This campaign is not accepting donations.');const now=new Date();if(campaign.startsAt>now||campaign.endsAt<now)return bad(res,400,'This campaign is outside its giving dates.');
     const actor=req.user||null;let donor=null;
     if(actor){donor=await prisma.donor.findUnique({where:{userId:actor.id}});if(!donor)donor=await prisma.donor.create({data:{userId:actor.id,name:actor.name,email:actor.email}});}
@@ -113,8 +115,8 @@ export function createPrismaRouter(prisma) {
         await audit(tx,actor,succeeded?'DONATION_SUCCEEDED':'DONATION_FAILED','Donation',updated.id,{amount:updated.amount.toString(),campaignId:campaign.id,method:req.body.method});
         if(actor){await notifyUser(tx,actor.id,succeeded?'Donation confirmed':'Payment attempt failed',succeeded?`Your ${decimalFromCents(cents).toFixed(2)} demo gift to ${campaign.title} was recorded.`:`Your demo payment to ${campaign.title} failed. You can retry it from your donation history.`,'DONATION');if(receipt)await notifyUser(tx,actor.id,'Receipt ready',`Receipt ${receipt.receiptNumber} is ready to download.`,'RECEIPT');}
         const full=await tx.donation.findUnique({where:{id:updated.id},include:{campaign:true,donor:true,receipt:true,attempts:true}});return {donation:full,receipt};
-      });res.status(201).json({donation:donationDto(result.donation),receipt:result.receipt?{receiptNumber:result.receipt.receiptNumber}:null});
-    } catch(e){if(e.code==='P2002'&&key){const existing=await prisma.donation.findUnique({where:{idempotencyKey:key},include:{campaign:true,donor:true,receipt:true,attempts:true}});if(existing)return res.status(200).json({donation:donationDto(existing),receipt:existing.receipt?{receiptNumber:existing.receipt.receiptNumber}:null});}throw e;}
+      });res.status(201).json({donation:donationDto(result.donation),receipt:result.receipt?{receiptNumber:result.receipt.receiptNumber}:null,...(result.donation.status==='SUCCEEDED'&&!req.user?{receiptAccessToken:receiptAccessToken(result.donation.id)}:{})});
+    } catch(e){if(e.code==='P2002'&&key){const existing=await prisma.donation.findUnique({where:{idempotencyKey:key},include:{campaign:true,donor:true,receipt:true,attempts:true}});if(existing)return res.status(200).json({donation:donationDto(existing),receipt:existing.receipt?{receiptNumber:existing.receipt.receiptNumber}:null,...(existing.status==='SUCCEEDED'&&!req.user?{receiptAccessToken:receiptAccessToken(existing.id)}:{})});}throw e;}
   }));
   router.get('/donations',auth,asyncRoute(async(req,res)=>{
     const {page,limit}=pageParams(req.query);const where={};if(req.user.role!=='ADMIN')where.donorId=req.user.donorId||'00000000-0000-4000-8000-000000000000';if(req.query.status)where.status=req.query.status;if(req.query.campaignId)where.campaignId=req.query.campaignId;if(req.query.method)where.attempts={some:{method:req.query.method}};if(req.query.q){const q=String(req.query.q);where.OR=[{transactionRef:{contains:q,mode:'insensitive'}},{donor:{is:{name:{contains:q,mode:'insensitive'}}}},{campaign:{is:{title:{contains:q,mode:'insensitive'}}}}];}Object.assign(where,whereDates(req));
@@ -199,7 +201,20 @@ export function createPrismaRouter(prisma) {
 
   router.get('/donations/:id',auth,asyncRoute(async(req,res)=>{const where={id:req.params.id};if(req.user.role!=='ADMIN')where.donorId=donorScope(req);const d=await prisma.donation.findFirst({where,include:{campaign:true,donor:true,receipt:true,attempts:true}});if(!d)return bad(res,404,'Donation not found.');res.json(donationDto(d));}));
   router.get('/donor/donations/export.csv',auth,asyncRoute(async(req,res)=>{if(donorOnly(req,res))return;const rows=await prisma.donation.findMany({where:{donorId:donorScope(req)},include:{campaign:true,attempts:true,receipt:true},orderBy:{createdAt:'desc'},take:10000});const csv=['date,campaign,amount,currency,status,method,reference,receipt',...rows.map(d=>[d.createdAt.toISOString().slice(0,10),quoteCsv(d.campaign.title),d.amount.toFixed(2),d.currency,d.status,quoteCsv(d.attempts.at(-1)?.method||'DEMO'),d.transactionRef||'',d.receipt?.receiptNumber||''].join(','))].join('\r\n');res.type('text/csv').attachment('my-donations.csv').send(csv);}));
-  router.get('/receipts/:id/pdf',auth,asyncRoute(async(req,res)=>{const where={id:req.params.id,...(req.user.role==='ADMIN'?{}:{donation:{is:{donorId:donorScope(req)}}})};const r=await prisma.receipt.findFirst({where,include:{donation:{include:{campaign:true,donor:true}}}});if(!r)return bad(res,404,'Receipt not found.');const d=r.donation;const pdf=createPdf(['Official demo donation receipt',`Receipt number: ${r.receiptNumber}`,`Donor: ${d.anonymous?'Anonymous supporter':d.donor?.name||'Supporter'}`,`Campaign: ${d.campaign.title}`,`Gift amount: ${d.amount.toFixed(2)} ${d.currency}`,`Donation date: ${d.createdAt.toISOString().slice(0,10)}`,`Demo reference: ${d.transactionRef||'N/A'}`],{title:'Goodwill Foundation'});res.type('application/pdf').attachment(`${r.receiptNumber}.pdf`).send(pdf);}));
+  router.get('/receipts/:id/pdf',asyncRoute(async(req,res)=>{
+   if(req.headers.authorization)return auth(req,res,()=>sendPrismaReceipt(req,res));
+   try{const c=jwt.verify(req.headers['x-receipt-access-token'],ACCESS_SECRET);if(c.purpose!=='receipt-download'||c.donationId!==req.params.id)return bad(res,403,'Receipt access denied.');req.receiptClaims=c;return sendPrismaReceipt(req,res)}catch{return bad(res,401,'Please sign in or use your checkout receipt link.')}
+  }));
+  const sendPrismaReceipt=async(req,res)=>{
+   const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(req.params.id);
+   const where={...(uuid?{OR:[{id:req.params.id},{donationId:req.params.id}]}:{receiptNumber:req.params.id}),...(req.user&&req.user.role!=='ADMIN'?{donation:{is:{donorId:donorScope(req)}}}:{})};
+   const r=await prisma.receipt.findFirst({where,include:{donation:{include:{campaign:true,donor:true,attempts:{orderBy:{createdAt:'desc'},take:1}}}}});
+   if(!r||r.donation.status!=='SUCCEEDED')return bad(res,404,'Receipt not found.');
+   if(req.receiptClaims&&req.receiptClaims.donationId!==r.donationId)return bad(res,403,'Receipt access denied.');
+   if(!req.user&&!req.receiptClaims)return bad(res,401,'Please sign in to continue.');
+   const d=r.donation,pdf=createDonationReceiptPdf({donation:d,campaign:d.campaign,donor:d.donor,receipt:r});
+   res.type('application/pdf').attachment('Goodwill_Receipt_'+r.receiptNumber+'.pdf').send(pdf);
+  };
   router.get('/receipt-verification/:receiptNumber',asyncRoute(async(req,res)=>{const r=await prisma.receipt.findUnique({where:{receiptNumber:req.params.receiptNumber},include:{donation:{include:{campaign:true}}}});if(!r||r.donation.status!=='SUCCEEDED')return bad(res,404,'Receipt could not be verified.');res.json({valid:true,receiptNumber:r.receiptNumber,amount:dollars(r.donation.amount),currency:r.donation.currency,campaign:r.donation.campaign.title,donationDate:r.donation.createdAt,receiptId:r.id});}));
   router.get('/donor/annual-statement.pdf',auth,asyncRoute(async(req,res)=>{if(donorOnly(req,res))return;const year=Number(req.query.year||new Date().getUTCFullYear());if(!Number.isInteger(year)||year<2000||year>new Date().getUTCFullYear()+1)return bad(res,400,'Choose a valid statement year.');const rows=await prisma.donation.findMany({where:{donorId:donorScope(req),status:'SUCCEEDED',createdAt:{gte:new Date(Date.UTC(year,0,1)),lt:new Date(Date.UTC(year+1,0,1))}},include:{campaign:true,receipt:true},orderBy:{createdAt:'asc'}});const total=rows.reduce((s,d)=>s+moneyCents(d.amount.toString()),0n);const lines=[`Annual giving statement: ${year}`,`Donor: ${req.user.name}`,`Successful demo gifts: ${rows.length}`,`Total: $${decimalFromCents(total).toFixed(2)}`,'','Donation details:',...rows.map(d=>`${d.createdAt.toISOString().slice(0,10)} | ${d.campaign.title} | $${d.amount.toFixed(2)} | ${d.receipt?.receiptNumber||'No receipt'}`),'','All entries are simulated academic demo transactions.'];res.type('application/pdf').attachment(`goodwill-statement-${year}.pdf`).send(createPdf(lines,{title:'Goodwill Foundation Annual Giving Statement'}));}));
 

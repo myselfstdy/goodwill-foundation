@@ -1,0 +1,10 @@
+flowchart LR
+ Guest[Guest] --> Campaign[Browse active campaign]
+ Donor[Donor] --> Campaign
+ Campaign --> Auth[Optional registration or login]
+ Auth --> Gift[Validate and create donation]
+ Gift --> Payment{Demo payment result}
+ Payment -->|Success| Receipt[Issue one receipt]
+ Payment -->|Failure| Failed[Failed status; no receipt]
+ Receipt --> History[Donor history and admin reports]
+ Failed --> Retry[Retry may be offered]

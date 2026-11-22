@@ -1,0 +1,27 @@
+flowchart LR
+ subgraph Client["<<device>> Donor or administrator"]
+  Browser[Web browser]
+  React[React client]
+ end
+ subgraph Web["<<cloud>> Vercel"]
+  Static[Static web application]
+  Rewrite[SPA routes and /api rewrite]
+ end
+ subgraph App["<<node>> Render application service"]
+  API[<<artifact>> Express REST API]
+  Auth[Authentication and validation]
+  Routes[Campaign, donation, receipt, reports, support]
+  Pay[<<component>> Demo payment simulator]
+  API --> Auth --> Routes
+  Routes --> Pay
+ end
+ subgraph Data["<<database>> Neon PostgreSQL"]
+  Prisma[Prisma data access]
+  DB[(Relational database)]
+  Prisma --> DB
+ end
+ Browser -->|HTTPS| Static
+ Static --> Rewrite
+ Rewrite -->|/api| API
+ Routes --> Prisma
+ Pay -->|Simulated result| Routes

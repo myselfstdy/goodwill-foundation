@@ -1,0 +1,9 @@
+flowchart LR
+ Guest[Guest] -->|Browse or gift| DMS((Goodwill Donation System))
+ Donor[Donor] -->|Account and giving| DMS
+ Admin[Administrator] -->|Manage and report| DMS
+ DMS -->|Causes and outcome| Guest
+ DMS -->|Own history and receipts| Donor
+ DMS -->|Dashboard and exports| Admin
+ DMS -->|Simulated request| Sim[Demo payment simulator]
+ Sim -->|Outcome and reference| DMS
