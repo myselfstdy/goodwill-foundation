@@ -32,7 +32,7 @@ const seed = () => {
       const amount = [125, 250, 75, 500, 100, 175][(i + n) % 6];
       campaign.raised += amount;
       const status = (i === 2 && n === 1) ? 'FAILED' : 'SUCCEEDED';
-      donations.push({ id: id(), campaignId: campaign.id, donorId: d.id, donorName: d.name, email: d.email, amount, currency: 'USD', status, anonymous: false, transactionRef: `DEMO-${String(41001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n), receiptNumber: status === 'SUCCEEDED' ? `RCP-${new Date().getFullYear()}-${String(1001 + i * 2 + n)}` : null, attempts: [{ attemptNumber: 1, status, reference: `ATT-${String(51001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n) }] });
+      donations.push({ id: id(), campaignId: campaign.id, donorId: d.id, donorName: d.name, email: d.email, amount, currency: 'INR', status, anonymous: false, transactionRef: `DEMO-${String(41001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n), receiptNumber: status === 'SUCCEEDED' ? `RCP-${new Date().getFullYear()}-${String(1001 + i * 2 + n)}` : null, attempts: [{ attemptNumber: 1, status, reference: `ATT-${String(51001 + i * 2 + n)}`, createdAt: iso(-i * 4 - n) }] });
     }
   });
   const accounts = [{ id: id(), name: 'Goodwill Foundation', email: 'VVITU@ac.in', password: bcrypt.hashSync('VVITU@123', 10), role: 'ADMIN' }, ...donors.map(d => ({ id: id(), name: d.name, email: d.email, password: bcrypt.hashSync('DonorDemo!23', 10), role: 'DONOR' }))];

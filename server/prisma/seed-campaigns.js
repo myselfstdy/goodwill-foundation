@@ -28,7 +28,6 @@ try {
         title,
         description,
         category,
-        target,
         status: 'ACTIVE',
         startsAt: day(-30),
         endsAt: day(90)
